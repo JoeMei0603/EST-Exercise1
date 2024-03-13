@@ -6,19 +6,28 @@ class MyAtoiTest {
     @Test
     void testStrIsNull() {
         int result = MyAtoi.myAtoi(null);
+
         Assertions.assertEquals(0, result);
     }
 
     @Test
     void testStrIsEmpty() {
         int result = MyAtoi.myAtoi("");
+
+        Assertions.assertEquals(0, result);
+    }
+
+    @Test
+    void testStrIsZero() {
+        int result = MyAtoi.myAtoi("0");
+
         Assertions.assertEquals(0, result);
     }
 
     @Test
     void testStrLeadingWhiteSpace() {
         int resultEmptyString = MyAtoi.myAtoi(" ");
-        int resultWithNumber = MyAtoi.myAtoi(" 2");
+        int resultWithNumber = MyAtoi.myAtoi(" 2 ");
         int resultWithChars = MyAtoi.myAtoi(" abc");
 
         Assertions.assertEquals(0, resultEmptyString);
@@ -31,19 +40,21 @@ class MyAtoiTest {
         int resultWithPlus = MyAtoi.myAtoi(" +51");
         int resultWithoutPlus = MyAtoi.myAtoi("51");
         int resultWithPlusAtEnd = MyAtoi.myAtoi("51+");
-        int resultWithMinusAtEnd = MyAtoi.myAtoi("51-");
+        int resultWithTwoNumbers = MyAtoi.myAtoi("51+53");
 
         Assertions.assertEquals(51, resultWithPlus);
         Assertions.assertEquals(51, resultWithoutPlus);
         Assertions.assertEquals(51, resultWithPlusAtEnd);
-        Assertions.assertEquals(51, resultWithMinusAtEnd);
+        Assertions.assertEquals(51, resultWithTwoNumbers);
     }
 
     @Test
     void testNegativeResult() {
-        int resultWithMinus = MyAtoi.myAtoi(" -51");
+        int resultWithMinus = MyAtoi.myAtoi("-51");
+        int resultWithMinusAtEnd = MyAtoi.myAtoi("51- ");
 
         Assertions.assertEquals(-51, resultWithMinus);
+        Assertions.assertEquals(51, resultWithMinusAtEnd);
     }
 
     @Test
