@@ -78,6 +78,26 @@ class MyAtoiTest {
     }
 
     @Test
+    void testIntCloseToPositiveBoundary() {
+        // 2147483647 is 2^31-1
+        int equalsBoundary = MyAtoi.myAtoi("2147483647");
+        int justBelowBoundary = MyAtoi.myAtoi("2147483646");
+
+        Assertions.assertEquals(2147483647, equalsBoundary);
+        Assertions.assertEquals(2147483646, justBelowBoundary);
+    }
+    @Test
+    void testIntCloseToNegativeBoundary() {
+        // -2147483648 is -2^31
+        int equalsBoundary = MyAtoi.myAtoi("-2147483648");
+        int justBelowBoundary = MyAtoi.myAtoi("-2147483647");
+
+        Assertions.assertEquals(-2147483648, equalsBoundary);
+        Assertions.assertEquals(-2147483647, justBelowBoundary);
+    }
+
+
+    @Test
     void testIntTooLarge() {
         // 2147483647 is 2^31-1
         int result = MyAtoi.myAtoi("2147483648");

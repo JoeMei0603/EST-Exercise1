@@ -18,12 +18,15 @@ that zeros at the beginning are ignored.
 
 Finally, the Integer boundaries were tested by using the first off-point of the positive and negative numbers range.
 
-With all this tests, the branch coverage reported by JaCoCo was already at 100% (18/18).
 #### Structural testing
-TODO
+With all this tests, the branch coverage reported by JaCoCo was already at 100% (18/18).
 
 #### Mutation testing
-TODO
+At first, the mutation coverage reported 95% meaning that 20/21 mutations were successfully killed and only 1 survived.
+The surviving mutation was a changed conditional boundary in line 28. This was an easy case to get rid of and also meaningful
+to include in testing. Therefore, two new tests were added which also checked **valid** boundary conditions (number is equal to boundary and just below) which 
+in the end resulted in a 100% mutation coverage with 21/21 mutations killed.
+
 
 ## combination_sum
 #### Specification-based testing

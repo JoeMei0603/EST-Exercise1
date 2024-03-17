@@ -37,6 +37,7 @@
                         </goals>
                     </execution>
                     <execution>
+                        <id>combination-sum-report</id>
                         <phase>package</phase>
                         <goals>
                             <goal>report</goal>
