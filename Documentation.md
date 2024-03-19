@@ -40,7 +40,8 @@ The partitions to test:
 1. The input "target"
 
 Here, I explored various scenarios, including negative target values, which should result in an empty list, as observed 
-in the tests. Additionally, I examined typical cases where the target aligns with different combinations of candidates, 
+in the tests (the getResult() function will not do anything, since the case negative target is not explicitly handled). 
+Additionally, I examined typical cases where the target aligns with different combinations of candidates, 
 ensuring correct outcomes. Furthermore, the tests also covered instances where a candidate exactly matched the target, 
 validating its inclusion as a solution. Special consideration was given to edge cases, such as when the target was 
 smaller than the smallest candidate, ensuring appropriate handling.
@@ -58,8 +59,8 @@ Therefore, I updated the code to detect and handle duplicate candidates, adherin
 the necessary modifications, the test passed successfully.
 
 (ii) Testing with only negative "candidates" and a positive target failed, revealing an undocumented constraint. 
-Upon investigation, I found that the target must be greater than or equal to 0. Extending this assumption, I enforced 
-that "candidates" must also be non-negative. Subsequently, I modified the code to throw an IllegalArgumentException for 
+After checking the Code (see 1.), I found out that the target must be greater than or equal to 0. Extending this assumption, 
+I enforced that "candidates" must also be non-negative. Subsequently, I modified the code to throw an IllegalArgumentException for 
 negative candidates, resolving the issue. After implementing the necessary modifications, the test passed successfully.
 
 3. Possible combinations
@@ -71,8 +72,20 @@ test case failed (boundary testing; on point 149 and off point 150. This indicat
 I updated the code to throw an exception error when the number of unique combinations surpasses 150. 
 Following the implementation of these modifications, the test passed successfully.
 
-With all this tests, the branch coverage reported by JaCoCo was already at 100% (18/18).
 #### Structural testing
+With all this tests, the branch coverage reported by JaCoCo was already at 100% (18/18). However, I could only resolve 
+two open questions after examining the source code.
+
+Target Validity: Although the branch coverage was already at 100%, upon inspecting the source code, it became apparent 
+that the target can only be greater than or equal to zero; otherwise, the method would return an empty list. 
+No modifications were made to the target input handling. However, adjustments were made to the code to ensure that both 
+candidates and target are positive in order that the function works as intended. With a negative target the function 
+still works, but it returns an empty list (the "candidates" have to be positive).
+
+Input Type Handling: The code robustly handled already valid input types, making the need for specific tests like 
+"testNonIntegerCandidates" or "testNonIntegerTarget" redundant. This ensures that the method functions appropriately 
+with the expected input types without explicit testing.
+
 #### Mutation testing
 
 ## frac2dec
