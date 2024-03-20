@@ -87,6 +87,24 @@ Input Type Handling: The code robustly handled already valid input types, making
 with the expected input types without explicit testing.
 
 #### Mutation testing
+Initially, the mutation coverage reported 86%, indicating that 14 out of 17 mutations were successfully killed, 
+while 3 mutants survived:
+(i) One surviving mutation resulted from a modification in the code where the sort(candidates) function was removed.
+Consequently, the removal of duplicates did not function properly without the sorted list. However, this issue was 
+addressed by adopting a new approach to remove duplicates using a hash set. Subsequently, the mutation coverage increased 
+to 88%, indicating that 15 out of 17 mutations were effectively neutralized. Therefore, this mutant was killed successfully.
+(ii)
+The second surviving mutant arose from an unhandled edge case where there is only one candidate with the value 0 and 
+the target is also 0. This scenario was not previously accounted for, leading to a gap in test coverage. However, a 
+new test case was written specifically to address this edge case. As a result, the mutation coverage improved to 96%, 
+indicating that 16 out of 17 mutations were effectively neutralized. 
+Consequently, this mutant was successfully killed.
+(iii)
+The third surviving mutant is not practically relevant. The requirement explicitly states that the array size must 
+be less than 150, making it a fixed constraint. Altering this requirement would not be meaningful. As a result, 
+this surviving mutant is disregarded. 
+
+In conclusion, we achieved a 94% mutation coverage, successfully neutralizing 16 out of 17 mutations.
 
 ## frac2dec
 #### Specification-based testing

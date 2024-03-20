@@ -1,10 +1,10 @@
 package zest;
-
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
 public class CombinationSum {
+    private static final int MAX_COMBINATIONS = 150;
     public static List<List<Integer>> combinationSum(int[] candidates, int target) {
         // Check if any candidate is negative
         for (int candidate : candidates) {
@@ -14,10 +14,12 @@ public class CombinationSum {
         }
 
         // Check for duplicate candidates
-        Arrays.sort(candidates);
-        for (int i = 1; i < candidates.length; i++) {
-            if (candidates[i] == candidates[i - 1]) {
-                throw new IllegalArgumentException("Duplicate candidates found: " + candidates[i] + ". Duplicate candidates are not allowed.");
+        HashSet<Integer> foundInteger = new HashSet<>();
+        for (int candidate : candidates) {
+            if (foundInteger.contains(candidate)) {
+                throw new IllegalArgumentException("Duplicate candidates found: " + candidate + ". Duplicate candidates are not allowed.");
+            } else {
+                foundInteger.add(candidate);
             }
         }
 
@@ -25,7 +27,7 @@ public class CombinationSum {
         getResult(result, new ArrayList<Integer>(), candidates, target, 0);
 
         // Check if the size of the result list is less than 150
-        if (result.size() >= 150) {
+        if (result.size() >= MAX_COMBINATIONS) {
             throw new IllegalArgumentException("Number of unique combinations that sum up to target exceeds 150. This is not allowed.");
         }
 

@@ -1,6 +1,7 @@
 package zest;
 import org.junit.jupiter.api.*;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -68,15 +69,6 @@ class CombinationSumTest {
     } // the code has been modified for this part --> assumptions only positive candidates allowed
 
 
-    /*@Test
-    void testNonIntegerCandidates() {
-        String[] candidates = {"1", "2", "3"};
-        int target = 4;
-        assertThrows(IllegalArgumentException.class, () -> {
-            CombinationSum.combinationSum(candidates, target);
-        });
-    }*/
-
     @Test
     void testNonDistinctCandidates() {
         int[] candidates = {1, 1, 2, 2};
@@ -94,7 +86,7 @@ class CombinationSumTest {
     } // the code has been modified for this part!
 
     @Test
-    void testLessThan150Combinations() {
+    void testMoreThan150Combinations() {
         int[] candidates = {1, 2};
         int target = 300;
 
@@ -116,5 +108,36 @@ class CombinationSumTest {
         List<List<Integer>> expected = new ArrayList<>();
         assertEquals(expected, CombinationSum.combinationSum(candidates, target));
     }
+
+    //After MutationTesting implemented
+    @Test
+    public void testNegativeCandidate() {
+        try {
+            int[] candidates = {0, 1, 2, -3, 4};
+            int target = 10;
+            CombinationSum.combinationSum(candidates, target);
+            fail("Expected IllegalArgumentException was not thrown");
+        } catch (IllegalArgumentException e) {
+            assertEquals("Negative candidates are not allowed.", e.getMessage());
+        }
+    }
+
+    @Test
+    public void testNoNegativeCandidate() {
+        int[] candidates = {1, 2, 3, 4};
+        int target = 10;
+        List<List<Integer>> result = CombinationSum.combinationSum(candidates, target);
+        assertNotNull(result);
+
+    }
+
+    @Test
+    void testCandidateAndTargetEqualZero() {
+        int[] candidates = {0};
+        int target = 0;
+        List<List<Integer>> expected = List.of(List.of());
+        assertEquals(expected, CombinationSum.combinationSum(candidates, target));
+    }
+
 
 }
