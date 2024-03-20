@@ -108,7 +108,32 @@ In conclusion, we achieved a 94% mutation coverage, successfully neutralizing 16
 
 ## frac2dec
 #### Specification-based testing
+The first step was to understand the requirements, inputs, and outputs of the given function. To gain an initial
+understanding about these, the description about the function was analyzed. Since the problem description seemed rather
+simple, the code itself was instantly taken into the analysis as well. Based on these, 4 partitions have been
+identified:
+
+1. "numerator" or "denominator" equal 0
+Here, the focus was on cases where either the numerator or denominator equaled zero. It was explicitly stated that when 
+the denominator is zero, the function should return null. Additionally, it was tested that when the numerator is zero, 
+the output should be "0". After modifying the code to handle the denominator being zero, all test cases passed successfully.
+
+2. Repeating fractional & multiple answers
+The code was evaluated to ensure it correctly enclosed repeating fractional parts within parentheses. It was also 
+verified that the function handled cases where multiple answers were possible, which it did successfully.
+
+3. String length < 104 constraint
+In the requirements it was clearly stated that the string length must be less than 104. This test case failed initially, 
+but after adding this constraint to the code, the test case run successfully.
+
+4. Fraction Output
+Lastly, general test cases were conducted to assess the function's handling of fraction outputs. This included scenarios 
+with negative numerators or both numerator and denominator being negative. All test cases produced the expected outcomes 
+without necessitating any modifications to the code.
+
 #### Structural testing
+With the previously created tests, the branch coverage reported by JaCoCo was already at 100% (26/26).
+
 #### Mutation testing
 
 ## generate_parentheses

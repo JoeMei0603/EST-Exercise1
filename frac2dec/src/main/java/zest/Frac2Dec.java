@@ -5,6 +5,7 @@ import java.util.HashMap;
 class Frac2Dec {
 
     public static String fractionToDecimal(int numerator, int denominator) {
+        if (denominator == 0) return null;
         if (numerator == 0) return "0";
 
         StringBuilder res = new StringBuilder();
@@ -37,6 +38,10 @@ class Frac2Dec {
             else {
                 map.put(num, res.length());
             }
+        }
+        // length of the answer string cannot be >=104
+        if (res.length() >= 104) {
+            throw new IllegalArgumentException("Length of the answer string exceeds the maximum.");
         }
         return res.toString();
     }

@@ -14,9 +14,21 @@ class Frac2DecTest {
     }
 
     @Test
-    void testNegativeFraction() {
+    void testNegativeNumerator() {
         String result = Frac2Dec.fractionToDecimal(-1, 8);
         assertEquals("-0.125", result);
+    }
+
+    @Test
+    void testNegativeDenominator() {
+        String result = Frac2Dec.fractionToDecimal(1, -8);
+        assertEquals("-0.125", result);
+    }
+
+    @Test
+    void testNegativeDenominatorAndNumerator() {
+        String result = Frac2Dec.fractionToDecimal(-1, -8);
+        assertEquals("0.125", result);
     }
 
     @Test
@@ -47,7 +59,7 @@ class Frac2DecTest {
     void testDenominatorZero() {
         String result = Frac2Dec.fractionToDecimal(5, 0);
         assertNull(result);
-    } // check in the code
+    } // modified in Code
 
     @Test
     void testMultipleAnswersOutcome() {
@@ -56,10 +68,11 @@ class Frac2DecTest {
     }
 
     @Test
-    void testAnswerLengthLessThan104() {
-        String result = Frac2Dec.fractionToDecimal(1, 9999);
-        assertEquals(104, result);
-    } // check in the Code
+    void testAnswerStringLengthExceeds104() {
+        int denominator = 123456789;
+        int numerator = 1;
+        assertThrows(IllegalArgumentException.class, () -> Frac2Dec.fractionToDecimal(numerator, denominator));
+    }// modified in Code
 
 
 }
