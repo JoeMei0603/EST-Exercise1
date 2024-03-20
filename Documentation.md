@@ -195,8 +195,30 @@ have been reversed. However, these newly written tests did not reveal any new bu
 
 ## median_of_arrays
 #### Specification-based testing
+Based on the specifications, the input consisting the two integer arrays was tested in various ways:
+1. One of the two arrays is null which in both cases returns 0.
+2. Either both or one of the arrays is empty. If both are empty, the code returns -1 and since there was no specification
+how to handle this case, it was not changed further. If only one is empty, the function call works as intended.
+3. Either one of the arrays is not sorted in ascending order in which case the returned value is 0.
+4. All combinations of array lengths: meaning both arrays are odd/even, only one of them is odd/even and also arrays 
+containing a single element
+5. Integers can also be negative and therefore f.e. the sorting test or arrays with mixed integers (+ and -) were
+also tested
+
+A special case, which was not specified in the README, is non-unique integers inside an array. An array which is {2, 2}
+still fulfills the requirement of being sorted in ascending order. The test case failed and in our opinion revealed a
+bug. A small adjustment to the boundary in line 19 of MedianOfArrays solved the issue.
+
 #### Structural testing
+The tests done for the specification-based testing together already resulted in a branch coverage of 100% (28/28).
+
 #### Mutation testing
+The mutation coverage was 96% with 44/46 mutations being killed. One of the surviving mutations was a changed conditional
+boundary in line 8 in the getMin function. However, many different cases and combinations were already tested and therefore forcing
+the mutation to be tested would require more effort than it would help improve code quality.
+The second surviving mutation is a replaced integer addition with subtraction in line 32
+of the findMedianSortedArrays function. This can be ignored because for the modulo calculation it does not matter if it is
+2+1 or 2-1 the outcome stays the same.
 
 ## needle_in hay
 #### Specification-based testing
