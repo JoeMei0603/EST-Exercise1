@@ -1,13 +1,15 @@
 package zest;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class GenerateParentheses {
 
     public static List<String> generateParentheses(int n) {
         List<String> combinations = new ArrayList();
-        if (n<=0) return combinations;
+        if (n<=0) return Collections.emptyList(); //MODIFIED
+        if (n>8) throw new IllegalArgumentException("8 is already a lot! Don't use 9!"); //MODIFIED
         generateAll(new char[2 * n], 0, combinations);
         return combinations;
     }
