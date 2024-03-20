@@ -61,6 +61,10 @@ class Frac2DecTest {
         assertNull(result);
     } // modified in Code
 
+    @Test void testDenominatorAndNumeratorZero()
+    { String result = Frac2Dec.fractionToDecimal(0, 0);
+        assertNull(result); }
+
     @Test
     void testMultipleAnswersOutcome() {
         String result = Frac2Dec.fractionToDecimal(1, 3);
