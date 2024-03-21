@@ -79,4 +79,54 @@ class Frac2DecTest {
     }// modified in Code
 
 
+    //Added after mutation Testing
+    @Test
+    void testZeroNumeratorPositiveDenominator() {
+        String result = Frac2Dec.fractionToDecimal(0, 2);
+        assertEquals("0", result);
+    }
+
+    @Test
+    void testZeroNumeratorNegativeDenominator() {
+        String result = Frac2Dec.fractionToDecimal(0, -2);
+        assertEquals("0", result);
+    }
+
+    @Test
+    void testPositiveNumeratorZeroDenominator() {
+        String result = Frac2Dec.fractionToDecimal(3, 0);
+        assertNull(result);
+    }
+
+    @Test
+    void testNegativeNumeratorZeroDenominator() {
+        String result = Frac2Dec.fractionToDecimal(-3, 0);
+        assertNull(result);
+    }
+
+    @Test
+    void testPositiveNumeratorPositiveDenominator() {
+        String result = Frac2Dec.fractionToDecimal(3, 2);
+        assertEquals("1.5", result);
+    }
+
+    @Test
+    void testNegativeNumeratorPositiveDenominator() {
+        String result = Frac2Dec.fractionToDecimal(-3, 2);
+        assertEquals("-1.5", result);
+    }
+
+    @Test
+    void testPositiveNumeratorNegativeDenominator() {
+        String result = Frac2Dec.fractionToDecimal(3, -2);
+        assertEquals("-1.5", result);
+    }
+
+    @Test
+    void testNegativeNumeratorNegativeDenominator() {
+        String result = Frac2Dec.fractionToDecimal(-3, -2);
+        assertEquals("1.5", result);
+    }
+
+
 }

@@ -68,7 +68,7 @@ negative candidates, resolving the issue. After implementing the necessary modif
 In this scenario focusing on possible combinations, I initially verified whether the output would correctly return an 
 empty array list when the target cannot be achieved with the provided candidates. This test passed as expected.
 However, upon testing for constraints, specifically when the number of unique combinations exceeds or equals 150, the 
-test case failed (boundary testing; on point 149 and off point 150. This indicated a bug in the code. Subsequently, 
+test case failed (boundary testing; on point 149 and off point 150). This indicated a bug in the code. Subsequently, 
 I updated the code to throw an exception error when the number of unique combinations surpasses 150. 
 Following the implementation of these modifications, the test passed successfully.
 
@@ -132,9 +132,25 @@ with negative numerators or both numerator and denominator being negative. All t
 without necessitating any modifications to the code.
 
 #### Structural testing
-With the previously created tests, the branch coverage reported by JaCoCo was already at 100% (26/26).
+With the previously created tests, the branch coverage reported by JaCoCo was already at 100% (18/18).
 
 #### Mutation testing
+Our mutation coverage reported 86%, with 19 out of 22 mutations successfully neutralized. 
+However, three mutants survived:
+
+(i)The first surviving mutant, the class Frac2Dec itself, requires no further action.
+
+(ii)Another surviving mutant involves a change to the operator >=, which is irrelevant due to the guaranteed 
+length constraint of the answer string (less than 104) (explicitly given in the requirements). Therefore, this mutation 
+can be disregarded.
+
+(iii) The final surviving mutation, known as changed conditional boundary, alters the condition 
+((numerator > 0) ^ (denominator > 0)). Despite extensive testing across various scenarios and values, 
+this mutation persisted. However, given that all possible combinations are covered by our test cases, we conclude 
+that this mutation does not warrant additional consideration.
+
+In summary, our mutation coverage of 86% reflects the successful elimination of 19 out of 22 mutations.
+The remaining mutants can be disregarded, confirming the adequacy of our testing efforts.
 
 ## generate_parentheses
 #### Specification-based testing
