@@ -21,6 +21,12 @@ class PalindromeTwoTest {
     }
 
     @Test
+    void testZero(){
+        boolean result = PalindromeTwo.isPalindrome(0);
+        assertFalse(result);
+    }
+
+    @Test
     void testSimplePalindrome(){
         boolean result = PalindromeTwo.isPalindrome(1221);
         assertTrue(result);
@@ -32,11 +38,7 @@ class PalindromeTwoTest {
         assertFalse(result);
     }
 
-    @Test
-    void testZero(){
-        boolean result = PalindromeTwo.isPalindrome(0);
-        assertFalse(result);
-    }
+
 
     @Test
     void testPositivePalindrome(){
@@ -89,15 +91,27 @@ class PalindromeTwoTest {
 
 
     @Test
+    void testModulus11LessThan1000(){
+        boolean result = PalindromeTwo.isPalindrome(737);
+        assertTrue(result);
+    }
+    @Test
     void testNotModulus11LessThan1000(){
         boolean result = PalindromeTwo.isPalindrome(981);
         assertFalse(result);
     }
 
     @Test
-    void testModulus11LessThan1000(){
-        boolean result = PalindromeTwo.isPalindrome(737);
+    void testModulus11GreaterThan1000(){
+        boolean result = PalindromeTwo.isPalindrome(1012);
+        assertFalse(result);
+    }
+
+    @Test
+    void testNotModulus11GreaterThan1000(){
+        boolean result = PalindromeTwo.isPalindrome(10201);
         assertTrue(result);
     }
+
 
 }

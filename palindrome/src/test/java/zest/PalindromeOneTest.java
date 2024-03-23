@@ -54,6 +54,14 @@ class PalindromeOneTest {
 
     }
 
+    @Test
+    void testMinNegativeInteger(){
+
+        boolean result = PalindromeOne.isPalindrome(-1048576);
+        assertFalse(result);
+
+    }
+
 
 
 
