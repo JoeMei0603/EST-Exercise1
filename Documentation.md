@@ -238,10 +238,47 @@ of the findMedianSortedArrays function. This can be ignored because for the modu
 
 ## needle_in hay
 #### Specification-based testing
+At first, we read the requirements specification of the given function and identified the inputs and outputs for the programs. We identified the
+given partitions of the program.
+
+1. If "haystack" or "needle" is null, return -1: If either the supplied haystack or the needle is null the program should return -1 and should not proceed further. Here the "null"
+   is different from empty string.
+2. If both "haystack" and "needle" are empty, return 0: It was explicitly stated in the specification that in a case where
+   both "haystack" and "needle" are empty string, the function should return 0. But upon testing the function, it was found that
+   if any one of either "haystack" and "needle" is empty and other not, then the execution of program was getting aborted while throwing
+   an error. Wee resolved this issue in the function and the test were getting passed.
+3. If "needle" not present in "haystack", return -1: In the case where the supplied "needle" is not present inside the "haystack", the program should return -1
+4. Return the index of starting position if the needle is present in the haystack.
+
+Along with the requirements, the special case for function throwing an error when either one of "needle" or "haystack"  was empty was also identified and fixed.
 #### Structural testing
+With all the created test, the branch coverage reported by JaCoCo was already at 100% (17/17)
 #### Mutation testing
+Our mutation coverage reported 94% with 16 out of 17 mutations getting neutralized. With the single mutation surviving.
+The changed conditional boundary for the "for loop". We tested many different inputs for the function and came to the conclusion 
+that trying to kill the mutant would only waste the effort.
 
 ## palindrome
 #### Specification-based testing
+We first read the specification of the function and understood the requirements without looking at the code as they were simple and the input was
+only allowing the "int" datatype, which further narrows the requirements. But there was a "Constraints" in the requirement, which said that the input "x"
+should be `>=-2^20` and `<=2^20-1`. 
+While testing we found that these constraints were not getting fulfilled in the program, so we added the constraints and tested the program accordingly.
+
+There were two different programs, `PalindromeOne` and `PalindromeTwo`, both of them were implementing the specification differently, therefore the test for both were written different.
+
 #### Structural testing
+For `PalindromeOne` we wrote 8 test all of which passed and JaCoCo showed a branch coverage of 100%
+
+For `PalindromeTwo`, JaCoCo showed a branch coverage of 100% as well with all the test passing (16/16)
+
 #### Mutation testing
+The overall mutation coverage for both the `Palindrome` programs was 81%.
+
+The Mutation test for `PalindromeOne` showed a coverage of 92% with 12/13 mutants getting killed. The only surviving mutant was changed 
+conditional boundary in the while loop, which we found out could not be killed. There were no need for any further test for `PalindromeOne`.
+
+For `PalindromeTwo`, initial mutation coverage was revealed to be 61%. But upon further testing and changes in the test, the mutation coverage 
+increased to 77%. After which the mutants were not getting killed, the surviving mutants were under the category of "changed conditional boundary"
+and "replaced mathematical operations". The surviving mutants were hard to kill in the context and we did extensive testing to ensure the program was fully
+tested, therefore we decided to leave the surviving mutants as it is. Because it was not revealed that they would damage the execution of program.
