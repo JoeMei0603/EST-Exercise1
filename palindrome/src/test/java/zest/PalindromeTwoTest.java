@@ -6,6 +6,20 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PalindromeTwoTest {
 
+
+
+    @Test
+    void testSingleDigit(){
+        boolean result = PalindromeTwo.isPalindrome(1);
+        assertTrue(result);
+    }
+
+    @Test
+    void testNegativeInteger(){
+        boolean result = PalindromeTwo.isPalindrome(-1);
+        assertFalse(result);
+    }
+
     @Test
     void testSimplePalindrome(){
         boolean result = PalindromeTwo.isPalindrome(1221);
@@ -19,14 +33,8 @@ class PalindromeTwoTest {
     }
 
     @Test
-    void testSingleDigit(){
-        boolean result = PalindromeTwo.isPalindrome(9);
-        assertTrue(result);
-    }
-
-    @Test
-    void testNegativeInteger(){
-        boolean result = PalindromeTwo.isPalindrome(-1221);
+    void testZero(){
+        boolean result = PalindromeTwo.isPalindrome(0);
         assertFalse(result);
     }
 
@@ -45,11 +53,19 @@ class PalindromeTwoTest {
 
 
     @Test
-    void testMinNegativeInteger(){
+    void testMinNegativeIntegerThrowException(){
 
         assertThrows(IllegalArgumentException.class,() -> {
             PalindromeTwo.isPalindrome(-1048577);
         });
+
+    }
+
+    @Test
+    void testMinNegativeInteger(){
+
+        boolean result = PalindromeTwo.isPalindrome(-1048576);
+        assertFalse(result);
 
     }
 
@@ -66,10 +82,11 @@ class PalindromeTwoTest {
     }
 
     @Test
-    void testModulus11LessThan100_2(){
-        boolean result = PalindromeTwo.isPalindrome(77);
-        assertTrue(result);
+    void testNotModulus11LessThan100(){
+        boolean result = PalindromeTwo.isPalindrome(91);
+        assertFalse(result);
     }
+
 
     @Test
     void testNotModulus11LessThan1000(){
