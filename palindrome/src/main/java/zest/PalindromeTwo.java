@@ -7,6 +7,10 @@ public class PalindromeTwo {
 
     public static boolean isPalindrome(int x) {
 
+
+        if(x<-Math.pow(2, 20)) throw new IllegalArgumentException("x is less than -2^20");
+        if(x>Math.pow(2, 20)) throw new IllegalArgumentException("x is greater than 2^20-1");
+
         if (x < 0) return false;
         if (x % 10 == 0) return false;
         if (x < 100 && x % 11 == 0) return true;
