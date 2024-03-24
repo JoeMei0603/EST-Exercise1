@@ -273,12 +273,23 @@ For `PalindromeOne` we wrote 8 test all of which passed and JaCoCo showed a bran
 For `PalindromeTwo`, JaCoCo showed a branch coverage of 100% as well with all the test passing (16/16)
 
 #### Mutation testing
-The overall mutation coverage for both the `Palindrome` programs was 81%.
+The overall mutation coverage for both the `Palindrome` programs was 85%.
 
 The Mutation test for `PalindromeOne` showed a coverage of 92% with 12/13 mutants getting killed. The only surviving mutant was changed 
 conditional boundary in the while loop, which we found out could not be killed. There were no need for any further test for `PalindromeOne`.
 
 For `PalindromeTwo`, initial mutation coverage was revealed to be 61%. But upon further testing and changes in the test, the mutation coverage 
-increased to 77%. After which the mutants were not getting killed, the surviving mutants were under the category of "changed conditional boundary"
-and "replaced mathematical operations". The surviving mutants were hard to kill in the context and we did extensive testing to ensure the program was fully
+increased to 85%. After which the mutants were not getting killed, the surviving mutants were under the following categories:
+
+(i) changed conditional boundary: The mutant under this category survived on line 14 and line 16, for both of these changed conditional boundaries we did test and found they were hard to kill within the context.
+For the condition `if (x < 0)`, we wrote tests for the mutated conditions `if (x <=  0)` and `if (x > 0)` and found that the mutant was not getting killed despite the test. Similarly test were written for mutated condition of `if (x < 100 && x % 11 == 0)`.
+
+(ii) replaced mathematical operations: The second category of surviving mutants were the "replaced mathematical operations". On line 16, there was a surviving mutant `Replaced integer modulus with multiplication` on the condition `if (x < 100 && x % 11 == 0)`,
+now reaching this would not be possible because the only scenario where this would be true was when `x` was 0, and if `x` was 0 the program would not go past line 15. Similarly there was a surviving mutant on line 17, which was `if (x < 1000 && ((x / 100) * 10 + x % 10) % 11 == 0)`,
+
+
+(iii)
+
+of ""
+and "". The surviving mutants were hard to kill in the context and we did extensive testing to ensure the program was fully
 tested, therefore we decided to leave the surviving mutants as it is. Because it was not revealed that they would damage the execution of program.

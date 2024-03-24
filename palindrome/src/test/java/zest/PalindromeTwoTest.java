@@ -113,5 +113,11 @@ class PalindromeTwoTest {
         assertTrue(result);
     }
 
+    @Test
+    void testSubtractionModulus11LessThan1000(){
+        boolean result = PalindromeTwo.isPalindrome(229);
+        assertFalse(result);
+    }
+
 
 }
