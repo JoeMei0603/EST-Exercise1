@@ -285,11 +285,7 @@ increased to 85%. After which the mutants were not getting killed, the surviving
 For the condition `if (x < 0)`, we wrote tests for the mutated conditions `if (x <=  0)` and `if (x > 0)` and found that the mutant was not getting killed despite the test. Similarly test were written for mutated condition of `if (x < 100 && x % 11 == 0)`.
 
 (ii) replaced mathematical operations: The second category of surviving mutants were the "replaced mathematical operations". On line 16, there was a surviving mutant `Replaced integer modulus with multiplication` on the condition `if (x < 100 && x % 11 == 0)`,
-now reaching this would not be possible because the only scenario where this would be true was when `x` was 0, and if `x` was 0 the program would not go past line 15. Similarly there was a surviving mutant on line 17, which was `if (x < 1000 && ((x / 100) * 10 + x % 10) % 11 == 0)`,
+now reaching this would not be possible because the only scenario where this would be true was when `x` was 0, and if `x` was 0 the program would not go past line 15. Similarly on line 17, the mutant `Replaced integer multiplication with division` survived, this mutant condition could also never become true therefore we were unable to write a test for it.
 
 
-(iii)
-
-of ""
-and "". The surviving mutants were hard to kill in the context and we did extensive testing to ensure the program was fully
-tested, therefore we decided to leave the surviving mutants as it is. Because it was not revealed that they would damage the execution of program.
+(iii) negated conditional: The final category was the `negated conditional`, this mutant survived on line 17. We wrote the test but the mutant was surviving, therefore we decided to leave the mutant.
