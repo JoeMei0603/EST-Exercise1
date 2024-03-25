@@ -244,48 +244,47 @@ given partitions of the program.
 1. If "haystack" or "needle" is null, return -1: If either the supplied haystack or the needle is null the program should return -1 and should not proceed further. Here the "null"
    is different from empty string.
 2. If both "haystack" and "needle" are empty, return 0: It was explicitly stated in the specification that in a case where
-   both "haystack" and "needle" are empty string, the function should return 0. But upon testing the function, it was found that
-   if any one of either "haystack" and "needle" is empty and other not, then the execution of program was getting aborted while throwing
-   an error. Wee resolved this issue in the function and the test were getting passed.
-3. If "needle" not present in "haystack", return -1: In the case where the supplied "needle" is not present inside the "haystack", the program should return -1
+   both "haystack" and "needle" are empty strings, the function should return 0. But upon testing the function, it was found that
+   if any of either "haystack" or "needle" is empty and the other is not, then the execution of program was aborted while throwing
+   an error. We resolved this issue in the function and the tests then passed.
+3. If "needle" is not present in "haystack", return -1: In the case where the supplied "needle" is not present inside the "haystack", the program should return -1
 4. Return the index of starting position if the needle is present in the haystack.
 
-Along with the requirements, the special case for function throwing an error when either one of "needle" or "haystack"  was empty was also identified and fixed.
+Along with the requirements, the special case for the function throwing an error when either one of "needle" or "haystack" being empty was also identified and fixed.
 #### Structural testing
-With all the created test, the branch coverage reported by JaCoCo was already at 100% (17/17)
+With all the created tests, the branch coverage reported by JaCoCo was already at 100% (17/17)
 #### Mutation testing
-Our mutation coverage reported 94% with 16 out of 17 mutations getting neutralized. With the single mutation surviving.
+Our mutation coverage reported 94% with 16 out of 17 mutations getting neutralized with one single mutation surviving.
 The changed conditional boundary for the "for loop". We tested many different inputs for the function and came to the conclusion 
-that trying to kill the mutant would only waste the effort.
+that trying to kill the mutant would require more effort than it would help improve code quality.
 
 ## palindrome
 #### Specification-based testing
 We first read the specification of the function and understood the requirements without looking at the code as they were simple and the input was
 only allowing the "int" datatype, which further narrows the requirements. But there was a "Constraints" in the requirement, which said that the input "x"
-should be `>=-2^20` and `<=2^20-1`. 
+should be `>=-2^20` and `<=2^20-1`.
 While testing we found that these constraints were not getting fulfilled in the program, so we added the constraints and tested the program accordingly.
 
-There were two different programs, `PalindromeOne` and `PalindromeTwo`, both of them were implementing the specification differently, therefore the test for both were written different.
+There were two different programs, `PalindromeOne` and `PalindromeTwo`, both of them were implementing the specification differently, therefore the tests for both were written differently.
 
 #### Structural testing
-For `PalindromeOne` we wrote 8 test all of which passed and JaCoCo showed a branch coverage of 100%
+For `PalindromeOne` we wrote 8 test. All of them passed and JaCoCo showed a branch coverage of 100%.
 
-For `PalindromeTwo`, JaCoCo showed a branch coverage of 100% as well with all the test passing (16/16)
+For `PalindromeTwo`, JaCoCo showed a branch coverage of 100% with all the tests passing (16/16).
 
 #### Mutation testing
 The overall mutation coverage for both the `Palindrome` programs was 85%.
 
 The Mutation test for `PalindromeOne` showed a coverage of 92% with 12/13 mutants getting killed. The only surviving mutant was changed 
-conditional boundary in the while loop, which we found out could not be killed. There were no need for any further test for `PalindromeOne`.
+conditional boundary in the while loop, which we found could not be killed. There was no need for any further tests for `PalindromeOne`.
 
 For `PalindromeTwo`, initial mutation coverage was revealed to be 61%. But upon further testing and changes in the test, the mutation coverage 
-increased to 85%. After which the mutants were not getting killed, the surviving mutants were under the following categories:
+increased to 85%. After the mutants were not getting killed any further, the surviving mutants were part of the following categories:
 
-(i) changed conditional boundary: The mutant under this category survived on line 14 and line 16, for both of these changed conditional boundaries we did test and found they were hard to kill within the context.
-For the condition `if (x < 0)`, we wrote tests for the mutated conditions `if (x <=  0)` and `if (x > 0)` and found that the mutant was not getting killed despite the test. Similarly test were written for mutated condition of `if (x < 100 && x % 11 == 0)`.
+(i) changed conditional boundary: The mutant under this category survived on line 14 and line 16. We tested both of these changed conditional boundaries and found they were hard to kill within the context.
+For the condition `if (x < 0)`, we wrote tests for the mutated conditions `if (x <=  0)` and `if (x > 0)` and found that the mutant was not getting killed despite the test. Similarly, tests were written for mutated condition of `if (x < 100 && x % 11 == 0)`.
 
 (ii) replaced mathematical operations: The second category of surviving mutants were the "replaced mathematical operations". On line 16, there was a surviving mutant `Replaced integer modulus with multiplication` on the condition `if (x < 100 && x % 11 == 0)`,
-now reaching this would not be possible because the only scenario where this would be true was when `x` was 0, and if `x` was 0 the program would not go past line 15. Similarly on line 17, the mutant `Replaced integer multiplication with division` survived, this mutant condition could also never become true therefore we were unable to write a test for it.
+now reaching this would not be possible because the only scenario where this would be true was when `x` was 0, and if `x` was 0 the program would not go past line 15. Similarly on line 17, the mutant `Replaced integer multiplication with division` survived. This mutant condition could also never become true, therefore we were unable to write a test for it.
 
-
-(iii) negated conditional: The final category was the `negated conditional`, this mutant survived on line 17. We wrote the test but the mutant was surviving, therefore we decided to leave the mutant.
+(iii) negated conditional: The final category was the `negated conditional`, where a mutant survived on line 17. We wrote a test but the mutant survived nonetheless, therefore we decided to accept the irrelevant mutant.
