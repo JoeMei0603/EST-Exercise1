@@ -1,0 +1,15 @@
+# Jqwik
+.jqwik-*
+
+# Maven
+target/
+maven-status/
+
+# IntelliJ
+*.iml
+*.ipr
+*.iws
+*.uml
+.shelf
+.idea/
+out/
