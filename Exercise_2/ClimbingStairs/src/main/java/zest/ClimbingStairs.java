@@ -1,7 +1,7 @@
 package zest;
 
 public class ClimbingStairs {
-    public long climbStairs(int n) {
+    public static long climbStairs(int n) {
         if (n <= 2) {
             return n;
         }
