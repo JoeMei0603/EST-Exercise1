@@ -20,7 +20,7 @@ Every exercise has its own folder and contains a problem definition, a `README.m
 `ExerciseName.java` and `ExerciseNameTest.java`. The `ExerciseName.java` file contains the solution which you have to test, and the `ExerciseNameTest.java` file is the file where you have to write your tests. If your test reveals any bugs, fix them by modifying `ExerciseName.java`. In that folder, there is an empty `pom.xml` file as well that you have to write your Maven configuration. To work on an exercise, you have to import this `pom.xml` file into your preferred IDE. Your task is to test the solutions, according to the instructions given in [the Testing section below](#testing).
 
 ## Solving an Exercise
-You have to write your tests inside the `ExerciseNameTest.java` file inside the `src` folder and your Maven configuration into pom.xml in the root directory.  You have to create an `Assets` folder for the screenshots of coverage reports and a  `log.txt` file that shows your tests run successfully.  Finally, you have to create a `Documentation.md` file in the root folder where you document your testing decisions and report the requested coverage (a single `Documentation.md` should contain the documentation for all the exercises).
+You have to write your tests inside the `ExerciseNameTest.java` file inside the `src` folder and your Maven configuration into pom.xml in the root directory.  You have to create an `Assets` folder for the screenshots of coverage reports and a  `log.txt` file that shows your tests run successfully.  Finally, you have to create a `Documentation.md` file in the root folder where you document your testing decisions and report the requested coverage (a `Documentation.md` should contain the documentation per exercise).
 
 ###### Requirements
 Java 11 is used for all the exercises. There is no guarantee things will work with other versions. Use JUnit 5 for implementing your test suite.
@@ -62,7 +62,7 @@ Develop a suite of JUnit tests specifically aimed at verifying that the contract
 Each assignment will be graded with either 0 (fail) or 1 (pass). For an assignment to score 1, it must: 
 1. Provide clear evidence of effort.
 **and**
-2. Provide a clear `Documentation.md` file 
+2. Provide a clear `Documentation.md` file (one file per exercise)
 **and** 
 3. Provide code that fulfils the requirements of the assignment.
 
