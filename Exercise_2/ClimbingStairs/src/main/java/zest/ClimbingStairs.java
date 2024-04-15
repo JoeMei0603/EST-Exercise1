@@ -2,6 +2,12 @@ package zest;
 
 public class ClimbingStairs {
     public static long climbStairs(int n) {
+        if (n < 0) {
+            throw new IllegalArgumentException("Cannot climb a negative staircase!");
+        }
+        if (n > 91) {
+            throw new IllegalArgumentException("Cannot climb a staircase with more than 91 steps!");
+        }
         if (n <= 2) {
             return n;
         }
@@ -13,6 +19,9 @@ public class ClimbingStairs {
             allWays = oneStepBefore + twoStepsBefore;
             twoStepsBefore = oneStepBefore;
             oneStepBefore = allWays;
+            if (allWays < 0) {
+                throw new RuntimeException("Cannot climb a staircase with a negative combination!");
+            }
         }
         return allWays;
     }
