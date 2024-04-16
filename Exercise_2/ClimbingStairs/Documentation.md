@@ -2,7 +2,7 @@
 
 ## Exercise 1: Climbing Stairs
 The method would have required to create an object in order to be testable.
-For this reason, the method had be changed to be static and is now accessible without an object.
+For this reason, the method had to be changed to be static and is now accessible without an object.
 
 ### Task 1: Code Coverage
 Analyzing the code reveals that a boundary exists between the input 2 and 3.
