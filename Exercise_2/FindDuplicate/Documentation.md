@@ -1,6 +1,8 @@
 # Documentation Group 22
 
 ### FindDuplicate
+IMPORTANT ASSUMPTION: According to the description, there is only one duplicate number, but it could be repeated 
+more than once. 
 
 ### Task 1: Code Coverage
 In this task, the goal is to achieve the highest possible (ideally, 100%) line coverage for the provided 
@@ -72,3 +74,16 @@ the duplicate number will always be within the range [1, nums.length - 1], cover
 may seem redundant.
 
 ### Task 4: Property-Based Testing
+For the Property-Based Testing, four properties have been identified.
+- **Range Property:** All elements in the input array nums must be within the range [1, n], where n is the maximum 
+possible value of an element in nums. Since the array nums contains n + 1 integers and each integer is 
+between 1 and n (inclusive), the maximum possible value of an element in nums is n itself. 
+Therefore, all elements in nums must be within the range [1, n].
+- **Positive Output Property:** The output of the findDuplicate method should always be a non-negative integer, 
+as it represents the duplicate number found in the array nums.
+- **Existing Duplicate Property:** For any input array nums, if there exists at least one duplicate element in nums, 
+the findDuplicate method should return that duplicate element.
+- **Consistency Property:** The findDuplicate method should return the same duplicate number for the same input array 
+nums every time it is invoked.
+
+

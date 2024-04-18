@@ -1,5 +1,8 @@
 package zest;
 
+import net.jqwik.api.ForAll;
+import net.jqwik.api.Property;
+import net.jqwik.api.constraints.IntRange;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -65,11 +68,12 @@ class FindDuplicateTest {
 
     @Test
     void testArrayElementsOutOfRange() {
-        int[] nums = {0, 1, 2, 3}; // 0 is out of range
+        int[] nums = {0, 1, 2, 2}; // 0 is out of range
         assertThrows(IllegalArgumentException.class, () -> {
             FindDuplicate.findDuplicate(nums);
         });
     }
 
+    //Task 4 Property Testing
 
 }

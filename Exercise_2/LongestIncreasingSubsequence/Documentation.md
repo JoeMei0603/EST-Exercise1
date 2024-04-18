@@ -60,3 +60,14 @@ result in 100% branch coverage. Therefore, while the current branch coverage is 
 to recognize that this particular assert statement does not affect the overall robustness or behavior of the code at all.
 
 ### Task 4: Property-Based Testing
+Property-based testing involves verifying that certain properties hold true for a given piece of code across a 
+wide range of inputs. For the "Longest Increasing Subsequence" problem, we can identify 3 properties that should 
+hold true for any inputs:
+
+- **Length Property:** The length of the longest increasing subsequence should never be negative. 
+It should represent a valid length of a subsequence (a non-negative integer).
+- **Subsequence Property:** A subsequence is a sequence that can be derived from an array by deleting some or 
+no elements without changing the order of the remaining elements. This property ensures that the longest increasing 
+subsequence is indeed a valid subsequence of the original array.
+- **Increasing Property:** The elements within the longest increasing subsequence should strictly increase. This property 
+ensures that the subsequence is actually increasing and not just a sequence of equal elements.
