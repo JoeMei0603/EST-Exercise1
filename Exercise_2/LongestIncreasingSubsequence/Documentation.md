@@ -48,7 +48,7 @@ might be preferred to provide more robust error handling.
 required for this invariant.
 
 ### Task 3: Testing Contracts
-We developed a suite of JUnit tests to ensure that the contracts of the FindDuplicate class are correctly enforced.
+We developed a suite of JUnit tests to ensure that the contracts of the LongestIncreasingSubsequence class are correctly enforced.
 These tests cover the following aspects extensively: (i) Validation of Normal Operation (Pre-Conditions Met) (ii) Confirmation of
 Exception Handling (Pre-Conditions Violated) (iii) Ensuring Post-Conditions Hold and (iv) Verification of Invariants.
 
