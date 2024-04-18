@@ -2,7 +2,12 @@ package zest;
 
 public class LongestIncreasingSubsequence {
     public int lengthOfLIS(int[] nums) {
-        if (nums == null || nums.length == 0) {
+
+        // Preconditions
+        if (nums == null) {
+            throw new IllegalArgumentException("Input array cannot be null");
+        }
+        if (nums.length == 0) {
             return 0;
         }
 
@@ -21,6 +26,9 @@ public class LongestIncreasingSubsequence {
 
             maxLength = Math.max(maxLength, dp[i]);
         }
+
+        // Post-condition (in this case always true...)
+        assert maxLength >= 0 : "Length of longest increasing subsequence must be >= 0";
 
         return maxLength;
     }
