@@ -24,7 +24,7 @@ The **invariant** was implicitly assumed to be true here and need no further imp
 
 
 ### Task 3: Testing Contracts
-Having introduced the **pre-condition** checks, which could not be reached because an integer larger than 32-bit could not be passed. 
+Having introduced the **pre-condition** checks, which could not be reached because an integer larger than 32-bit could not be passed into the function. 
 The line coverage of our test suite decreased to 84%.
 The **post-condition** tests were getting passed. In the case where the checks for **pre-conditions** were omitted, the line-coverage 
 and branch coverage of our test suite would have been 100%.
