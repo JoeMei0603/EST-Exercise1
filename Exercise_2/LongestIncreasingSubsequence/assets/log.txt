@@ -1,0 +1,37 @@
+timestamp = 2024-04-22T00:32:28.940473200, LongestIncreasingSubsequenceTest:increasingProperty = 
+                              |-----------------------jqwik-----------------------
+tries = 1000                  | # of calls to property
+checks = 1000                 | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = MIXIN       | edge cases are mixed in
+edge-cases#total = 10         | # of all combined edge cases
+edge-cases#tried = 10         | # of edge cases tried in current run
+seed = -2490606799813057633   | random seed to reproduce generated values
+
+
+timestamp = 2024-04-22T00:32:29.099757100, LongestIncreasingSubsequenceTest:lengthProperty = 
+                              |-----------------------jqwik-----------------------
+tries = 1000                  | # of calls to property
+checks = 1000                 | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = MIXIN       | edge cases are mixed in
+edge-cases#total = 10         | # of all combined edge cases
+edge-cases#tried = 10         | # of edge cases tried in current run
+seed = -8702801611620585802   | random seed to reproduce generated values
+
+
+timestamp = 2024-04-22T00:32:29.202736700, LongestIncreasingSubsequenceTest:subsequenceProperty = 
+                              |-----------------------jqwik-----------------------
+tries = 1000                  | # of calls to property
+checks = 1000                 | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = MIXIN       | edge cases are mixed in
+edge-cases#total = 10         | # of all combined edge cases
+edge-cases#tried = 10         | # of edge cases tried in current run
+seed = 4219696934944767871    | random seed to reproduce generated values
