@@ -74,16 +74,18 @@ the duplicate number will always be within the range [1, nums.length - 1], cover
 may seem redundant.
 
 ### Task 4: Property-Based Testing
-For the Property-Based Testing, four properties have been identified.
-- **Range Property:** All elements in the input array nums must be within the range [1, n], where n is the maximum 
-possible value of an element in nums. Since the array nums contains n + 1 integers and each integer is 
-between 1 and n (inclusive), the maximum possible value of an element in nums is n itself. 
-Therefore, all elements in nums must be within the range [1, n].
-- **Positive Output Property:** The output of the findDuplicate method should always be a non-negative integer, 
-as it represents the duplicate number found in the array nums.
-- **Existing Duplicate Property:** For any input array nums, if there exists at least one duplicate element in nums, 
-the findDuplicate method should return that duplicate element.
-- **Consistency Property:** The findDuplicate method should return the same duplicate number for the same input array 
-nums every time it is invoked.
+Property-based testing involves verifying that certain properties hold true for a given piece of code across a wide 
+range of inputs. For the "FindDuplicate" problem, we can identify 3 properties that should hold 
+true for any inputs:
 
+- **Existence of Duplicate:** The result should be a number that exists more than once in the input array.
+- **Within Range:** The result should be within the range of 1 to n, where n is the size of the array.
+- **Correctness:** The result should be a duplicate number present in the input array.
 
+**Implementation**: 
+- The existenceOfDuplicate test verifies that the algorithm correctly identifies a duplicate number within the 
+input array and that the result falls within the valid range.
+- The correctness test ensures that the result returned by the algorithm is indeed a duplicate number present in 
+the input array.
+- The withinRange test checks if the result returned by the algorithm falls within the valid range of 1 to n.
+A generator function validArrays is provided to generate valid input arrays for testing, ensuring diverse inputs.
