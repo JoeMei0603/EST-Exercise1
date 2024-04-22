@@ -1,4 +1,4 @@
-timestamp = 2024-04-20T19:33:34.469453, uniquePathsTest:testUniqueInvalidProperty = 
+timestamp = 2024-04-22T14:07:57.774668, uniquePathsTest:testUniqueInvalidProperty = 
                               |-----------------------jqwik-----------------------
 tries = 1000                  | # of calls to property
 checks = 1000                 | # of not rejected calls
@@ -7,11 +7,37 @@ after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
 when-fixed-seed = ALLOW       | fixing the random seed is allowed
 edge-cases#mode = MIXIN       | edge cases are mixed in
 edge-cases#total = 81         | # of all combined edge cases
-edge-cases#tried = 76         | # of edge cases tried in current run
-seed = 3487366305332351740    | random seed to reproduce generated values
+edge-cases#tried = 81         | # of edge cases tried in current run
+seed = 4114594884391275380    | random seed to reproduce generated values
 
 
-timestamp = 2024-04-20T19:33:34.494242, uniquePathsTest:testUniquePathsRecursiveProperty = 
+timestamp = 2024-04-22T14:07:57.808215, uniquePathsTest:testUniqueInvalidRowsProperty = 
+                              |-----------------------jqwik-----------------------
+tries = 1000                  | # of calls to property
+checks = 1000                 | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = MIXIN       | edge cases are mixed in
+edge-cases#total = 36         | # of all combined edge cases
+edge-cases#tried = 36         | # of edge cases tried in current run
+seed = 1914397960692935356    | random seed to reproduce generated values
+
+
+timestamp = 2024-04-22T14:07:57.835078, uniquePathsTest:testUniqueInvalidColumnsProperty = 
+                              |-----------------------jqwik-----------------------
+tries = 1000                  | # of calls to property
+checks = 1000                 | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = MIXIN       | edge cases are mixed in
+edge-cases#total = 36         | # of all combined edge cases
+edge-cases#tried = 36         | # of edge cases tried in current run
+seed = -7990418472818649073   | random seed to reproduce generated values
+
+
+timestamp = 2024-04-22T14:07:57.849309, uniquePathsTest:testUniquePathsRecursiveProperty = 
                               |-----------------------jqwik-----------------------
 tries = 256                   | # of calls to property
 checks = 256                  | # of not rejected calls
@@ -21,7 +47,7 @@ when-fixed-seed = ALLOW       | fixing the random seed is allowed
 edge-cases#mode = MIXIN       | edge cases are mixed in
 edge-cases#total = 0          | # of all combined edge cases
 edge-cases#tried = 0          | # of edge cases tried in current run
-seed = -828231989929786607    | random seed to reproduce generated values
+seed = 6231118476413110071    | random seed to reproduce generated values
 
 
 

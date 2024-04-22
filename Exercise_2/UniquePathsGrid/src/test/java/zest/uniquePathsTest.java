@@ -28,6 +28,22 @@ class uniquePathsTest {
     }
 
     @Test
+    void testUniquePathsOneRowMultipleColumns() {
+        UniquePaths testUniquePathsClass = new UniquePaths();
+        int result = testUniquePathsClass.uniquePaths(1,6);
+
+        Assertions.assertEquals(1, result);
+    }
+
+    @Test
+    void testUniquePathsOneColumnMultipleRows() {
+        UniquePaths testUniquePathsClass = new UniquePaths();
+        int result = testUniquePathsClass.uniquePaths(8,1);
+
+        Assertions.assertEquals(1, result);
+    }
+
+    @Test
     void testUniquePathsZeroRows() {
         UniquePaths testUniquePathsClass = new UniquePaths();
         assertThrows(IllegalArgumentException.class, () -> testUniquePathsClass.uniquePaths(0,2));
@@ -46,6 +62,20 @@ class uniquePathsTest {
     }
 
 
+    @Test
+    void testUniquePathsAboveHundredRows() {
+        UniquePaths testUniquePathsClass = new UniquePaths();
+        assertThrows(IllegalArgumentException.class, () -> testUniquePathsClass.uniquePaths(101,10));
+    }
+
+
+    @Test
+    void testUniquePathsAboveHundredColumns() {
+        UniquePaths testUniquePathsClass = new UniquePaths();
+        assertThrows(IllegalArgumentException.class, () -> testUniquePathsClass.uniquePaths(4,101));
+    }
+
+
 
     // The property does not have the minimum as '1' because the output will be 1 if
     // either row or column will be 1. And this would also break the recursive property
@@ -60,6 +90,22 @@ class uniquePathsTest {
 
     @Property
     void testUniqueInvalidProperty(@ForAll("invalidArguments") int m,@ForAll("invalidArguments") int n) {
+
+        UniquePaths testUniquePathsClass = new UniquePaths();
+
+        assertThrows(IllegalArgumentException.class, () -> testUniquePathsClass.uniquePaths(m,n));
+    }
+
+    @Property
+    void testUniqueInvalidRowsProperty(@ForAll("invalidArguments") int m,@ForAll @IntRange(min = 2, max = 17) int n) {
+
+        UniquePaths testUniquePathsClass = new UniquePaths();
+
+        assertThrows(IllegalArgumentException.class, () -> testUniquePathsClass.uniquePaths(m,n));
+    }
+
+    @Property
+    void testUniqueInvalidColumnsProperty(@ForAll @IntRange(min = 2, max = 17) int m,@ForAll("invalidArguments") int n) {
 
         UniquePaths testUniquePathsClass = new UniquePaths();
 
