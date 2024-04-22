@@ -4,8 +4,8 @@
 Problem: Calculate the sum of two integers without using the operators + and -
 
 ### Task 1: Code Coverage
-To get 100% code coverage and branch coverage for this solution, only 1 test was required but we decided to add few more test
-cases for negative integers and 0 as input. The provided test covered addition of positive integers, negative integers and a 0 as input.
+We first did an analysis on the code and to get 100% line coverage and branch coverage for this solution, only 1 test was required but we decided to devise and 
+add few more test cases for negative integers and 0 as input. These tests allowed us to have a full line and branch coverage.
 
 ### Task 2: Designing Contracts
 Understanding the requirements and their constraints leads to the pre- & post-condition, whereas understanding the code leads to the invariants.
@@ -20,21 +20,27 @@ if any of the input is outside the 32-bit range.
 The **post-condition** said that the solution should work for positive and negative integer. This **post-condition** was not specifically implemented in the solution, 
 we enforced it by adding an assertion that would be check if the generated sum is correct for all the integers.
 
-The **invariant** was implicitly assumed to be true here and need no further implementation.
-
+The **invariant** was that a correct output should be generated. Upon further investigation we found that when input `a` or `b` was close to **MAX** or **MIN** 
+value of 32-bit signed integer, the result was getting calculated correctly and it was getting overflowed and underflowed.
+To solve the issue and make sure that solution was holding the **invariant**, we changed the function  return type from `int` to `long`.
+This change ensured that the **invariant** was now holding and the output was getting calculated correctly.
+Along with the function return type, we also changed the function parameter type from `int` to `long`, in order to ensure integrity of the solution and to do proper testing.
+The **pre-condition** was still there and we were verifying that the provided input is not greater than or less than the range of 32-bit signed integer.
 
 ### Task 3: Testing Contracts
 Having introduced the **pre-condition** checks, which could not be reached because an integer larger than 32-bit could not be passed into the function. 
-The line coverage of our test suite decreased to 84%.
-The **post-condition** tests were getting passed. In the case where the checks for **pre-conditions** were omitted, the line-coverage 
-and branch coverage of our test suite would have been 100%.
+But we were able to test it and the code was reachable after we changed the parameter type to `long`.
+After having add these **pre-condition** and **post-condition** test, our line coverage was at 100%.
+The **post-condition** tests were getting passed and solution was successfully getting executed. Similarly, the solution was holding the 
+**invariant** and the output was not getting overflowed or underflowed.
 
 ### Task 4: Property-Based Testing
 Property-based testing involves verifying that certain properties hold true for a given piece of code across a
-wide range of inputs. For the "SumofTwoIntegers" problem, we can identify 3 properties that should
+wide range of inputs. For the "SumofTwoIntegers" problem, we can identify two different properties that should
 hold true for any inputs:
 
 - **Base Case:** Addition of any two integers should correctly calculate their output using bitwise operators.
+- **Invalid Case:** The solution should throw an error if either one or both of input `a` or `b` is out of the range of 32-bit signed integer.
 
 
 Upon creating and running this property based test, jqwik reported that the test passed and it was successful. No edge-cases were identified in the solution.
