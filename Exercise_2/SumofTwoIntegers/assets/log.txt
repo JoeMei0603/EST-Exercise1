@@ -1,4 +1,17 @@
-timestamp = 2024-04-19T20:24:51.078467, SumOfTwoIntegersTest:testSumofTwoIntegerProperty = 
+timestamp = 2024-04-22T14:55:23.580104, SumOfTwoIntegersTest:testSumWithInvalidAProperty = 
+                              |-----------------------jqwik-----------------------
+tries = 1000                  | # of calls to property
+checks = 1000                 | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = MIXIN       | edge cases are mixed in
+edge-cases#total = 72         | # of all combined edge cases
+edge-cases#tried = 72         | # of edge cases tried in current run
+seed = -1443594105954287215   | random seed to reproduce generated values
+
+
+timestamp = 2024-04-22T14:55:23.607056, SumOfTwoIntegersTest:testSumofTwoIntegerProperty = 
                               |-----------------------jqwik-----------------------
 tries = 1000                  | # of calls to property
 checks = 1000                 | # of not rejected calls
@@ -7,8 +20,34 @@ after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
 when-fixed-seed = ALLOW       | fixing the random seed is allowed
 edge-cases#mode = MIXIN       | edge cases are mixed in
 edge-cases#total = 81         | # of all combined edge cases
-edge-cases#tried = 76         | # of edge cases tried in current run
-seed = -1655312776269393075   | random seed to reproduce generated values
+edge-cases#tried = 81         | # of edge cases tried in current run
+seed = 2961566131864704372    | random seed to reproduce generated values
+
+
+timestamp = 2024-04-22T14:55:23.631942, SumOfTwoIntegersTest:testSumWithInvalidBProperty = 
+                              |-----------------------jqwik-----------------------
+tries = 1000                  | # of calls to property
+checks = 1000                 | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = MIXIN       | edge cases are mixed in
+edge-cases#total = 72         | # of all combined edge cases
+edge-cases#tried = 72         | # of edge cases tried in current run
+seed = 5777454599679396942    | random seed to reproduce generated values
+
+
+timestamp = 2024-04-22T14:55:23.662815, SumOfTwoIntegersTest:testSumofTwoInvalidIntegerProperty = 
+                              |-----------------------jqwik-----------------------
+tries = 1000                  | # of calls to property
+checks = 1000                 | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = MIXIN       | edge cases are mixed in
+edge-cases#total = 64         | # of all combined edge cases
+edge-cases#tried = 61         | # of edge cases tried in current run
+seed = 2977626652975767876    | random seed to reproduce generated values
 
 
 
