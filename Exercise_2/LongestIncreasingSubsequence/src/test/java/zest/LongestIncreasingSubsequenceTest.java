@@ -101,20 +101,20 @@ class LongestIncreasingSubsequenceTest {
         assertTrue(isIncreasing(input), "Elements within LIS should strictly increase");
     }
 
-    // Generates arrays of integers
+
     @Provide
     Arbitrary<int[]> intArrays() {
         return Arbitraries.integers().list().ofMinSize(0).ofMaxSize(100)
                 .map(list -> list.stream().mapToInt(Integer::intValue).toArray());
     }
 
-    // Helper method --> checks if array is a subsequence
+
     private boolean isSubsequence(int subsequenceLength, int[] fullArray) {
         int[] dp = new int[fullArray.length];
         int maxLength = 0;
 
         for (int i = 0; i < fullArray.length; i++) {
-            dp[i] = 1; // Each element is an increasing subsequence of length 1
+            dp[i] = 1;
 
             for (int j = 0; j < i; j++) {
                 if (fullArray[i] > fullArray[j]) {
@@ -128,7 +128,6 @@ class LongestIncreasingSubsequenceTest {
         return maxLength == subsequenceLength;
     }
 
-    // Helper method to check if elements in an array strictly increase
     private boolean isIncreasing(int[] lis) {
         for (int i = 1; i < lis.length; i++) {
             if (lis[i] <= lis[i - 1]) {
