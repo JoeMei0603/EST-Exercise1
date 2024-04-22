@@ -71,3 +71,12 @@ no elements without changing the order of the remaining elements. This property 
 subsequence is indeed a valid subsequence of the original array.
 - **Increasing Property:** The elements within the longest increasing subsequence should strictly increase. This property 
 ensures that the subsequence is actually increasing and not just a sequence of equal elements.
+
+**Implementation**:
+- The lengthProperty test verifies that the length of the longest increasing subsequence returned by the
+algorithm is non-negative.
+- The subsequenceProperty test checks whether the result of the algorithm is a valid subsequence of the original array.
+- The increasingProperty test verifies if the elements within the manually defined LIS array strictly increase.
+- While not directly tied to the algorithm's output, it ensures the correctness of the increasing property of the LIS.
+- We had to use helper functions to encapsulate logic that verifies properties of the LIS, such as checking if the 
+LIS is a valid subsequence and if its elements strictly increase.
