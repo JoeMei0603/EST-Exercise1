@@ -2,7 +2,10 @@ package zest;
 
 import net.jqwik.api.*;
 import net.jqwik.api.constraints.Size;
+import net.jqwik.api.constraints.UniqueElements;
 import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -92,10 +95,10 @@ class LongestIncreasingSubsequenceTest {
     }
 
     @Property
-    void increasingProperty(@ForAll @Size(max = 20) int[] input) {
-        int[] lisArray = {1, 3, 5, 7}; // Manually defined LIS array for testing
+    void increasingProperty(@ForAll @UniqueElements @Size(max = 20) int[] input) {
+        Arrays.sort(input);
 
-        assertTrue(isIncreasing(lisArray), "Elements within LIS should strictly increase");
+        assertTrue(isIncreasing(input), "Elements within LIS should strictly increase");
     }
 
     // Generates arrays of integers
