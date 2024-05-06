@@ -1,6 +1,13 @@
 public class Book {
-    private String title;
-    private int rating; // Rating on a scale from 1 to 5
+    private final String title;
+    private final int rating; // Rating on a scale from 1 to 5
+    private String author; // Additional Implementation
+
+    public Book(String title, int rating, String author) { // Additional Implementation
+        this.title = title;
+        this.rating = rating;
+        this.author = author;
+    }
 
     public Book(String title, int rating) {
         this.title = title;
@@ -13,5 +20,9 @@ public class Book {
 
     public int getRating() {
         return rating;
+    }
+
+    public String getAuthor() { // Additional Implementation
+        return author;
     }
 }
