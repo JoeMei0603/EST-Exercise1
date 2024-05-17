@@ -11,7 +11,7 @@ Isolating the unit tests for BookManager from these external systems allows the 
 To be able to inject the mocks into the `BookManager`, it was necessary to create a constructor and to extract the dependency creation of `BookRatingsFetcher`.
 Compared to this change, `BookRatingsFetcher` did not have to be changed, since it is already implemented in a way that it takes an instance of `DatabaseConnection` in a constructor.
 Now, when someone initializes the `BookManager`, this person needs to pass in a new instance of `BookRatingsFetcher` (with another new instance of `DatabaseConnection`) in the constructor.
-Simultaneously, mocks and stubs can be injected as dependencies during testing. 
+Simultaneously, mocks and stubs can be injected as dependencies during testing.
 
 After adjusting the code to allow dependency injections, it was ready to be tested.
 First, a stub for the `BookRatingsFetcher` had to be created that can be injected into the `BookManager`.
@@ -22,7 +22,7 @@ Then, testcases for empty lists, lists being null, lists containing one book (on
 Each of those tests can modify the beforehand prepared list of books (`allBooks`) to simulate potential database responses.
 With those tests, the method has been successfully tested with all types of coverages reaching 100%.
 #### 3. Disadvantages
-A clear disadvantage of using mocks or stubs is the significant coupling with the production code. 
+A clear disadvantage of using mocks or stubs is the significant coupling with the production code.
 In this case, the `BookRatingsFetcherStub` depends on the implementation of `BookRatingsFetcher` itself, meaning that additions, changes, deletions, etc. need to be mirrored by the stub class.
 Otherwise, if the behavior of the `BookRatingsFetcher` test double deviates from the actual behavior of fetching data from the database, it may lead to false positives or negatives in tests.
 Determining how much the tests need to know about the production code to test it properly is therefore a significant challenge.
