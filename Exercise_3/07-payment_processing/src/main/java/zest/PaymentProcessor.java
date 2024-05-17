@@ -1,5 +1,8 @@
 package zest;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PaymentProcessor {
     private EventPublisher eventPublisher;
     private TransactionService transactionService;
@@ -11,10 +14,12 @@ public class PaymentProcessor {
         this.fraudDetectionService = fraudService;
     }
 
-    public void processPayment(Transaction transaction) {
+    public Transaction processPayment(Transaction transaction) {
         if (fraudDetectionService.evaluateTransaction(transaction)) {
             transactionService.processTransaction(transaction);
             eventPublisher.publishTransactionComplete(transaction);
+            return transaction;
         }
+        return null;
     }
 }
