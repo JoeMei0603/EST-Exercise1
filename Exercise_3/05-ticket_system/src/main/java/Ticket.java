@@ -1,12 +1,10 @@
-package support;
-
 import java.util.UUID;
 
 public class Ticket {
-    private String id;
-    private String customerEmail;
-    private String issueDescription;
-    private TicketPriority priority;
+    private final String id;
+    private final String customerEmail;
+    private final String issueDescription;
+    private final TicketPriority priority;
 
     public Ticket(String customerEmail, String issueDescription, TicketPriority priority) {
         this.id = UUID.randomUUID().toString();
