@@ -1,8 +1,8 @@
 # Documentation Exercise 3 : Messages
 
 ## A. Number of invocations
-Before we could write the tests, we had to refactor the code of the `MessageProcessor` class to inject the dependency on
-`MessageService`. This allows us to use a mock object of `MessageService`.
+Before we could write the tests, we had to modify the code of the `MessageProcessor` class and inject the dependency on
+`MessageService`. This allowed us to use a mock object of `MessageService`.
 Then, we have created a unit test to ensure that the `sendmessage` method in the `MessageService` class is called as 
 often as messages are to be sent.
 
