@@ -21,4 +21,22 @@ public class MovieStreamingManager {
     }
 
     // Additional methods can be added here for other functionalities
+    public void updateMovieMetadata(String movieId, MovieMetadata metadata) {
+
+        if (movieId != null) {
+            StreamingDetails details = cacheService.getDetails(movieId);
+            fileStreamService.updateMetadata(movieId,metadata);
+            cacheService.cacheDetails(movieId, details);
+            cacheService.refreshCache(movieId, metadata);
+        }
+        else {
+            System.out.println("Failed to update the movie:" + movieId+" metadata");
+        }
+    }
+
+    public boolean validateStreamingToken(String token) {
+
+        return fileStreamService.ValidToken(token);
+    }
+
 }
