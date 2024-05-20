@@ -2,5 +2,5 @@ package zest;
 
 
 public interface MapService {
-    void updateMap(String busId, Location location);
+    void updateMap(String busId, zest.Location location);
 }

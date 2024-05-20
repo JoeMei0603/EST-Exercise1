@@ -29,4 +29,6 @@ public class Location {
     public String getWaypointName() {
         return waypointName;
     }
+
+
 }
