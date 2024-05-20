@@ -62,7 +62,10 @@ public class BusTrackerTest {
 
 
         var resultCapture = notificationsForBus.getValue();
+        var messageCapture= notificationsMessage.getValue();
         assertEquals( resultCapture,"77");
+        assertEquals( messageCapture,"The bus has arrived at Train Station");
+
 
     }
 
